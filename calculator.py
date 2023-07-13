@@ -67,7 +67,7 @@ def multiply(n1, n2):
 def divide(n1,n2):
   return n1 / n2
 
-  
+
 operations = {
   "+": add,
   "-": subtract,
@@ -87,6 +87,16 @@ num2 = int(input("Whats the second number?: "))
 
 calculation_function = operations[operation_symbol]
 
-answer = calculation_function(num1, num2)
+answer1 = calculation_function(num1, num2)
 
-print(f"{num1} {operation_symbol} {num2} = {answer}")
+print(f"{num1} {operation_symbol} {num2} = {answer1}")
+
+operation_symbol = input("pick another operation: ")
+
+num3 = int(input("Pick another number: "))
+
+calculation_function = operations[operation_symbol]
+
+answer2 = calculation_function(answer1, num3)
+
+print(f"{answer1} {operation_symbol} {num3} = {answer2}")
