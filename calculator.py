@@ -55,6 +55,7 @@
 #Lesson follow along
 
 
+
 def add(n1, n2):
   return n1 + n2
 
@@ -67,13 +68,14 @@ def multiply(n1, n2):
 def divide(n1,n2):
   return n1 / n2
 
-
+  
 operations = {
   "+": add,
   "-": subtract,
   "*": multiply,
   "/": divide,
 }
+
 
 
 num1 = int(input("Whats the first number?: "))
@@ -91,12 +93,29 @@ answer1 = calculation_function(num1, num2)
 
 print(f"{num1} {operation_symbol} {num2} = {answer1}")
 
-operation_symbol = input("pick another operation: ")
+calculate_again = False
 
-num3 = int(input("Pick another number: "))
+decision = input(f"Type 'y' to continue calculating with {answer1}, or type 'n' to exit.: ")
 
-calculation_function = operations[operation_symbol]
+if decision == "y":
+  calculate_again = True
+else:
+  calculate_again = False
+  
+while calculate_again == True:
+  
+  operation_symbol = input("pick another operation: ")
 
-answer2 = calculation_function(answer1, num3)
+  num3 = int(input("Pick another number: "))
 
-print(f"{answer1} {operation_symbol} {num3} = {answer2}")
+  calculation_function = operations[operation_symbol]
+
+  answer2 = calculation_function(answer1, num3)
+
+  print(f"{answer1} {operation_symbol} {num3} = {answer2}")
+
+  decision = input(f"Type 'y' to continue calculating with {answer1}, or type 'n' to exit.: ")
+  if decision == "y":
+    calculate_again = True
+  else:
+    calculate_again = False
