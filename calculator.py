@@ -78,27 +78,31 @@ operations = {
 }
 
 
+def calculator():
 
-num1 = int(input("Whats the first number?: "))
+  num1 = int(input("Whats the first number?: "))
 
-for symbol in operations:
-  print(symbol)
+  for symbol in operations:
+    print(symbol)
   
-calculate_again = True
+  calculate_again = True
 
 
   
-while calculate_again == True:
+  while calculate_again == True:
   
-  operation_symbol = input("pick an operation: ")
-  num2 = int(input("Whats the next number?: "))
-  calculation_function = operations[operation_symbol]
-  answer = calculation_function(num1, num2)
-  print(f"{num1} {operation_symbol} {num2} = {answer}")
+    operation_symbol = input("pick an operation: ")
+    num2 = int(input("Whats the next number?: "))
+    calculation_function = operations[operation_symbol]
+    answer = calculation_function(num1, num2)
+    print(f"{num1} {operation_symbol} {num2} = {answer}")
 
-  decision = input(f"Type 'y' to continue calculating with {answer}, or type 'n' to exit.: ")
-  if decision == "y":
-    num1 = answer
-    calculate_again = True
-  else:
-    calculate_again = False
+    decision = input(f"Type 'y' to continue calculating with {answer}, type 'n' to start a   new calculation.: ")
+    if decision == "y":
+      num1 = answer
+      calculate_again = True
+    else:
+      calculate_again = False
+      calculator()
+
+calculator()
