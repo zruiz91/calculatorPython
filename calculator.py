@@ -56,6 +56,7 @@
 
 
 
+
 def add(n1, n2):
   return n1 + n2
 
@@ -83,19 +84,19 @@ num1 = int(input("Whats the first number?: "))
 for symbol in operations:
   print(symbol)
 
-operation_symbol = input("Pick an operation from above: ")
+operation_symbol = input("Pick an operation: ")
 
-num2 = int(input("Whats the second number?: "))
+num2 = int(input("Whats the next number?: "))
 
 calculation_function = operations[operation_symbol]
 
-answer1 = calculation_function(num1, num2)
+answer = calculation_function(num1, num2)
 
-print(f"{num1} {operation_symbol} {num2} = {answer1}")
+print(f"{num1} {operation_symbol} {num2} = {answer}")
 
 calculate_again = False
 
-decision = input(f"Type 'y' to continue calculating with {answer1}, or type 'n' to exit.: ")
+decision = input(f"Type 'y' to continue calculating with {answer}, or type 'n' to exit.: ")
 
 if decision == "y":
   calculate_again = True
@@ -105,17 +106,14 @@ else:
 while calculate_again == True:
   
   operation_symbol = input("pick another operation: ")
-
   num3 = int(input("Pick another number: "))
-
   calculation_function = operations[operation_symbol]
+  answer2 = calculation_function(answer, num3)
+  print(f"{answer} {operation_symbol} {num3} = {answer2}")
 
-  answer2 = calculation_function(answer1, num3)
-
-  print(f"{answer1} {operation_symbol} {num3} = {answer2}")
-
-  decision = input(f"Type 'y' to continue calculating with {answer1}, or type 'n' to exit.: ")
+  decision = input(f"Type 'y' to continue calculating with {answer2}, or type 'n' to exit.: ")
   if decision == "y":
+    answer = answer2
     calculate_again = True
   else:
     calculate_again = False
